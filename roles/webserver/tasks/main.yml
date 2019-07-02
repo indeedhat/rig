@@ -1,0 +1,28 @@
+---
+- name: Install Apache
+  become: yes
+  dnf: name=httpd state=latest
+  notify:
+      - enable-apache
+      - restart-apache
+
+- name: Install MariaDB
+  become: yes
+  dnf: name=mariadb-server
+  notify: 
+    - enable-mariadb
+    - restart-apache
+
+- name: Install PHP
+  become: yes
+  dnf: 
+    name:
+      - php
+      - php-opcache
+      - php-xdebug
+      - php-sqlite3
+      - php-mbstring
+      - php-gd
+      - php-xml
+      - php-dom
+    state: present

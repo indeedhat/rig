@@ -1,0 +1,4 @@
+---
+- name: Install git
+  become: yes
+  dnf: name=git state=latest

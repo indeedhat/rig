@@ -1,0 +1,37 @@
+---
+- name: install some things
+  become: yes
+  dnf: 
+    name:
+        - htop
+        - less
+        - wget
+    state: latest
+
+- name: check for i3 copr repo
+  stat: path=/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gregw:i3desktop.repo
+  register: i3_copr
+
+- name: install copr repo for gaps
+  command: dnf copr enable gregw/i3desktop
+  when: not i3_copr.stat.exists
+
+- name: install i3 gaps
+  become: yes
+  dnf: 
+    name: i3-gaps
+    state: present
+
+- name: check for i3 blocks copr repo
+  stat: path=/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:wyvie:i3blocks.repo
+  register: i3_gaps
+
+- name: install copr repo for blocks
+  command: dnf copr enable wyvie/i3blocks
+  when: not i3_blocks.exists
+
+- name: install i3 blocks
+  become: yes
+  dnf:
+      name: i3-blocks
+      state: present

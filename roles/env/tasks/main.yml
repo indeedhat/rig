@@ -1,0 +1,16 @@
+---
+- name: Install development tools
+  become: yes
+  dnf: name='@Development tools' state=present
+
+- name: Install Other Packages
+  become: yes
+  dnf:
+    name:
+      - autoconf
+      - automake
+      - pkg-config
+      - cmake
+      - libtool
+    state: present
+

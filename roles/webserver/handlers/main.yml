@@ -1,0 +1,17 @@
+---
+- name: enable-apache
+  become: yes
+  service: name=httpd enabled=yes
+
+- name: restart-apache
+  become: yes
+  service: name=httpd state=restarted
+
+- name: enable-mysql
+  become: yes
+  service: name=mariadb enabled=yes
+
+- name: restart-mysql
+  become: yes
+  service: name=mariadb state=restarted
+  

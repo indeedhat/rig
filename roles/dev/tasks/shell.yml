@@ -1,0 +1,4 @@
+- name: install tmux
+  dnf: 
+    name: tmux
+    state: present
