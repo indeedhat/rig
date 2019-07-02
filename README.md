@@ -12,8 +12,8 @@
         - [ ] vhost config
     - [ ] docker
     - [ ] docker-compose
-    - [ ] golang
-    - [ ] node
+    - [x] golang
+    - [x] node
     - [x] neovim
     - php extra
         - [x] composer
@@ -23,7 +23,7 @@
 - desktop
     - [x] i3-gaps
     - [x] i3-blocks
-    - [ ] xrandr
+    - [x] xrandr
     - [ ] nvidia drivers
     - [ ] key remapping
     - [ ] desktop background

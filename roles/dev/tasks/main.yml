@@ -2,3 +2,5 @@
 - include: vim.yml
 - include: composer.yml
 - include: shell.yml
+- include: golang.yml
+- include: nodejs.yml

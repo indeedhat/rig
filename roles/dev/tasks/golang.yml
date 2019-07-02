@@ -1,0 +1,3 @@
+---
+- name: install go
+  dnf: name=golang state=present

@@ -1,0 +1,10 @@
+---
+- name: enable workstation repos
+  dnf: name=fedora-workstation-repositories state=present
+
+- name: install chrome
+  dnf: name=google-chrome-stable state=present enablerepo=google-chrome
+
+- name: install thunderbird
+  dnf: name=thunderbird state=latest
+
