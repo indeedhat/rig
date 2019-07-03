@@ -26,3 +26,10 @@
       - php-xml
       - php-dom
     state: present
+
+- name: copy vhost config
+  copy: src=vhosts.conf dest=/etc/httpd/conf.d/vhosts.conf
+  
+- name: copy apache config
+  copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+  notify: restart-apache

@@ -10,8 +10,8 @@
 - dev
     - [x] webserver (lamp)
         - [ ] vhost config
-    - [ ] docker
-    - [ ] docker-compose
+    - [x] docker
+    - [x] docker-compose
     - [x] golang
     - [x] node
     - [x] neovim

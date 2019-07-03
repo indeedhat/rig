@@ -14,3 +14,8 @@
       - libtool
     state: present
 
+- name: Install docker
+  dnf: name=docker state=latest
+
+- name: Install docker compose
+  dnf: name=docker-compose state=latest
