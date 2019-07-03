@@ -29,9 +29,9 @@
     - [ ] desktop background
 
 - applications
-    - [ ] chrome
-    - [ ] spotify
-    - [ ] thunderbird
+    - [x] chrome
+    - [x] spotify
+    - [x] thunderbird
     - [ ] mysql-workbench
     - [ ] bvim
 

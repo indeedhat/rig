@@ -8,3 +8,11 @@
 - name: install thunderbird
   dnf: name=thunderbird state=latest
 
+- name: install spotify
+  snap: name=spotify
+
+- name: install skype
+  snap: name=skype
+
+- name: install freecad
+  snap: name=freecad
