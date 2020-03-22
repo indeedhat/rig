@@ -1,18 +1,35 @@
 ---
 - name: enable workstation repos
+  become: yes
   dnf: name=fedora-workstation-repositories state=present
 
 - name: install chrome
+  become: yes
   dnf: name=google-chrome-stable state=present enablerepo=google-chrome
 
 - name: install thunderbird
+  become: yes
   dnf: name=thunderbird state=latest
 
+- name: install snap
+  become: yes
+  dnf: name=snapd state=latest
+
+- name: link for classic confinement
+  become: yes
+  file:
+      src: /var/lib/snapd/snap
+      dest: /snap
+      state: link
+
 - name: install spotify
+  become: yes
   snap: name=spotify
 
 - name: install skype
-  snap: name=skype
+  become: yes
+  snap: name=skype classic=yes
 
 - name: install freecad
+  become: yes
   snap: name=freecad

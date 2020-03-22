@@ -7,11 +7,11 @@
   become: yes
   service: name=httpd state=restarted
 
-- name: enable-mysql
+- name: enable-mariadb
   become: yes
   service: name=mariadb enabled=yes
 
-- name: restart-mysql
+- name: restart-mariadb
   become: yes
   service: name=mariadb state=restarted
   

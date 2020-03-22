@@ -1,2 +1,3 @@
 - name: Install composer
+  become: yes
   dnf: name=composer state=present

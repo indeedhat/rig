@@ -28,8 +28,10 @@
     state: present
 
 - name: copy vhost config
+  become: yes
   copy: src=vhosts.conf dest=/etc/httpd/conf.d/vhosts.conf
   
 - name: copy apache config
+  become: yes
   copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
   notify: restart-apache

@@ -1,3 +1,4 @@
 ---
 - name: install arandr
+  become: yes
   dnf: name=arandr state=latest

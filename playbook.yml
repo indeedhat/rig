@@ -1,6 +1,6 @@
 ---
 - name: do the config thing
-  hosts: 127.0.0.1
+  hosts: work
   connection: local
   user: "{{ user_name }}"
   roles:

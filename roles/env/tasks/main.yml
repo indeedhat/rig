@@ -15,7 +15,9 @@
     state: present
 
 - name: Install docker
+  become: yes
   dnf: name=docker state=latest
 
 - name: Install docker compose
+  become: yes
   dnf: name=docker-compose state=latest

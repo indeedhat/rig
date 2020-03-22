@@ -9,7 +9,7 @@
 
 - dev
     - [x] webserver (lamp)
-        - [ ] vhost config
+        - [x] vhost config
     - [x] docker
     - [x] docker-compose
     - [x] golang
@@ -25,8 +25,8 @@
     - [x] i3-blocks
     - [x] xrandr
     - [ ] nvidia drivers
-    - [ ] key remapping
     - [ ] desktop background
+    - [ ] login setup
 
 - applications
     - [x] chrome

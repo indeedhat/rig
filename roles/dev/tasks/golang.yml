@@ -1,3 +1,4 @@
 ---
 - name: install go
+  become: yes
   dnf: name=golang state=present

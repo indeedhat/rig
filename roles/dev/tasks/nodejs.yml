@@ -1,6 +1,8 @@
 ---
 - name: install nodejs
+  become: yes
   dnf: name=nodejs state=latest
 
 - name: install yarn
+  become: yes
   dnf: name=nodejs-yarn state=latest

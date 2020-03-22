@@ -1,0 +1,13 @@
+---
+- name: install phan
+  become: yes
+  composer:
+      command: require
+      global_command: yes
+      arguments: phan/phan
+
+- name: install eslint
+  become: yes
+  npm:
+      name: eslint
+      global: yes

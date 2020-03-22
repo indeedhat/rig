@@ -9,11 +9,13 @@
     state: latest
 
 - name: check for i3 copr repo
+  become: yes
   stat: path=/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gregw:i3desktop.repo
   register: i3_copr
 
 - name: install copr repo for gaps
-  command: dnf copr enable gregw/i3desktop
+  become: yes
+  command: dnf copr enable gregw/i3desktop -y
   when: not i3_copr.stat.exists
 
 - name: install i3 gaps
@@ -27,7 +29,8 @@
   register: i3_blocks
 
 - name: install copr repo for blocks
-  command: dnf copr enable wyvie/i3blocks
+  become: yes
+  command: dnf copr enable wyvie/i3blocks -y
   when: not i3_blocks.stat.exists
 
 - name: install i3 blocks
