@@ -4,8 +4,8 @@
   connection: local
   user: "{{ user_name }}"
   roles:
-      - env
-      - desktop
-      - dev
+      # - env
+      # - desktop
+      # - dev
       - webserver
-      - applications
+      # - applications

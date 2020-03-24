@@ -15,3 +15,10 @@
   become: yes
   service: name=mariadb state=restarted
   
+- name: restart-php-fpm
+  become: yes
+  service: name=php-fpm state=restarted
+
+- name: enable-php-fpm
+  become: yes
+  service: name=php-fpm enabled=yes

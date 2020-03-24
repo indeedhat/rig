@@ -1,0 +1,48 @@
+---
+- name: install php-fpm
+  become: true
+  dnf: name=php-fpm state=present
+
+- name: setup fpm config
+  become: yes
+  template: src=www.conf dest=/etc/php-fpm.d/www.conf
+  notify:
+      - enable-php-fpm
+      - restart-php-fpm
+
+- name: copy vhost config
+  become: yes
+  template: src=vhosts.conf dest=/etc/httpd/conf.d/vhosts.conf
+
+- name: create github dir
+  file: 
+      path: "/home/{{ user_name }}/Documents/{{ github }}" 
+      state: directory
+
+
+- name: allow apache to read from github dir
+  become: true
+  sefcontext:
+      target: "/home/{{ user_name }}/Documents/{{ github }}(/.*)?"
+      setype: httpd_sys_rw_content_t
+      state: present
+
+- name: apply selinux policy
+  become: yes
+  command: restorecon -irv "/home/{{ user_name }}/Documents/{{ github }}"
+  
+- name: copy apache config
+  become: yes
+  template: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+  notify: restart-apache
+
+- name: give permissions to php lib
+  become: true
+  acl:
+      path: /var/lib/php
+      entity: "{{ user_name }}"
+      etype: user
+      permissions: rwx
+      recursive: true
+      state: present
+
