@@ -2,3 +2,7 @@
 - name: install arandr
   become: yes
   dnf: name=arandr state=latest
+
+- name: perl open module (required by i3-dmenu-desktop)
+  become: yes
+  dnf: name=perl-open.noarch state=present
